@@ -1,15 +1,16 @@
-.App {
+.App h1 {
   text-align: center;
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+  animation: App-logo-spin infinite 30s linear;
+  height: 40px;
+  float: left;
 }
 
 .App-header {
   background-color: #222;
-  height: 150px;
+  height: 65px;
   padding: 20px;
   color: white;
 }
@@ -24,5 +25,53 @@
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  to { transform: rotate(-360deg); }
 }
+
+.tabs {
+  width: 400px;
+  display: inline-block;
+  margin-right: 30px;
+  vertical-align: top;
+}
+
+.tabs .tab-links {
+  margin: 0;
+  padding: 0;
+  border: 1px solid #CCC;
+  border-bottom: 1px solid #868686;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  height: 35px;
+  position: relative;
+  top: 5px;
+}
+
+.tabs .tab-link {
+  padding: 0 15px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  display: inline-block;
+  position: relative;
+  height: 40px;
+  line-height: 41px;
+  top: -6px;
+  left: -1px;
+}
+
+.tabs .tab-link-active {
+  font-weight: bold;
+  border: 1px solid #868686;
+  border-bottom: 1px solid white;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background-color: white;
+}
+
+.tabs .content {
+  padding: 15px;
+  border: 1px solid #868686;
+  border-top: 1px solid transparent;
+}
+
+.tabs .tabContent: {}
