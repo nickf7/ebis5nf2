@@ -2,7 +2,10 @@ import React from 'react';
 import './App.css';
 import {Tabs, TabLink, TabContent} from 'react-tabs-redux';
 
-const HeaderTab = (props) => {var openTabs=["tab1","tab2","tab3"];
+const HeaderTab = (props) => {var openTabs=
+                                  [{WOID:"wo1",title:"WO #1", details:"Work Order #1 Content"},
+                                   {WOID:"wo2",title:"WO #2",details:"Work Order #2 Content"},
+                                   {WOID:"wo3",title:"WO #3", details:"Work Order #3 content"}];
   return (
     <Tabs className="tabs" handleSelect={props.changeSelectedTab} selectedTab={props.tabs}>
       <div>
@@ -13,7 +16,7 @@ const HeaderTab = (props) => {var openTabs=["tab1","tab2","tab3"];
           openTabs.length ? (
 
             openTabs.map((tbs, i) => {
-              return<TabLink key={i} to={"tab"+(i+1)}>Tab {i+1}</TabLink>
+              return<TabLink key={i} to={tbs.WOID}>{tbs.title}</TabLink>
             })
           ) : null        
         }
@@ -21,7 +24,7 @@ const HeaderTab = (props) => {var openTabs=["tab1","tab2","tab3"];
           openTabs.length ? (
 
             openTabs.map((tbs, i) => {
-              return <TabContent key={i} for={"tab"+(i+1)}> Test Tab {i+1} Content </TabContent>
+              return <TabContent key={i} for={tbs.WOID}> {tbs.details} </TabContent>
             })
           ) : null        
         }
