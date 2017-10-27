@@ -1,13 +1,17 @@
-import CHANGE_SELECTED_TAB from './constants';
+import * as consts from './constants';
 
-const initialState = {}
+const initialStore = {
+  openTabs:[{WOID:"wo1", title:"WO #1", details:"Work Order #1 Content"}, 
+            {WOID:"wo2", title:"WO #2", details:"Work Order #2 Content"}, 
+            {WOID:"wo3", title:"WO #3", details:"Work Order #3 content"}]
+}
 
-export default function headerTabsReducer(state = initialState, action){
+export default function headerTabsReducer(state = initialStore, action){
   switch(action.type){
-    case CHANGE_SELECTED_TAB:
+    case consts.OPEN_NEW_TAB:
       return Object.assign({}, state,{
         ...state,
-        [action.namespace]: action.tab
+        openTabs: [...state.openTabs, action.newTab] // add new tab to end of array
       });
     default:
     return state;

@@ -74,4 +74,6 @@
   border-top: 1px solid transparent;
 }
 
-.tabs .tabContent: {}
+.tabs .tabContent {
+  color: blue;
+}
