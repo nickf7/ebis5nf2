@@ -2,29 +2,28 @@ import React from 'react';
 import './App.css';
 import {Tabs, TabLink, TabContent} from 'react-tabs-redux';
 
-const HeaderTab = (props) => {var openTabs=
-                                  [{WOID:"wo1",title:"WO #1", details:"Work Order #1 Content"},
-                                   {WOID:"wo2",title:"WO #2",details:"Work Order #2 Content"},
-                                   {WOID:"wo3",title:"WO #3", details:"Work Order #3 content"}];
-  return (
-    <Tabs className="tabs" handleSelect={props.changeSelectedTab} selectedTab={props.tabs}>
+const HeaderTab = (props) => {//var openTabs=[{WOID:"wo1",title:"WO #21", details:"Work Order #1 Content"}, {WOID:"wo2",title:"WO #2",details:"Work Order #2 Content"}, {WOID:"wo3",title:"WO #3", details:"Work Order #3 content"}];
+//debugger;  
+return (
+    <Tabs className="tabs">
       <div>
         {
-          openTabs.length <1 && <div className="text">No Tabs Open</div>
+          
+          props.openTabs.length <1 && <div className="text">No Tabs Open</div>
         }
         {
-          openTabs.length ? (
+          props.openTabs.length ? (
 
-            openTabs.map((tbs, i) => {
+            props.openTabs.map((tbs, i) => {
               return<TabLink key={i} to={tbs.WOID}>{tbs.title}</TabLink>
             })
           ) : null        
         }
         {
-          openTabs.length ? (
+          props.openTabs.length ? (
 
-            openTabs.map((tbs, i) => {
-              return <TabContent key={i} for={tbs.WOID}> {tbs.details} </TabContent>
+            props.openTabs.map((tbs, i) => {
+              return <TabContent key={i} for={tbs.WOID}> {tbs.details}  </TabContent>
             })
           ) : null        
         }
