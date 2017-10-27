@@ -11,30 +11,26 @@ class HeaderTab extends Component {
   //   super(props);
   // }
 
-  onNavClick(name){
-    tabActions.openNewTab({WOID:"wo"+name, title:"WO "+name, details:"Work Order:" +name +"Content"});
+  onNavClick = (name) => {
+    this.props.actions.openNewTab({WOID:name, title:name, details:"Work Order:" +name +"Content"});
     alert(name+" was clicked");
   }
 
-  onTabChange(event){
-    this.props.actions.changeSelectedTab(event);
-  }
-  linkObjs = [{name:"Open Work Order"},
-              {name:"Open Eq Browse Order"},
-              {name:"Open Somethin Else"}];
+  linkObjs = [{name:"OpnWO"},
+              {name:"EqBrwse"},
+              {name:"SumpinElse"}];
 //debugger;
   render(){
     return(
       <div className="header">
         <NavBar links={this.linkObjs} onClick={this.onNavClick}/>
-        <HeaderTabCmp handleSelect={this.changeSelectedTab} {...this.props} />
+        <HeaderTabCmp {...this.props} />
       </div>
     )
   }
 }
 
 function mapStoreToProps(store, ownProps){
-  //debugger;
   return {openTabs: store.headerTabs.openTabs};
 }
 

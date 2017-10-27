@@ -4,6 +4,7 @@ import rootReducer from './rootReducer';
 export default function configureStore(initialStore){
   return createStore(
     rootReducer,
-    initialStore
+    initialStore,
+    window.devToolsExtension ? window.devToolsExtension() : f => f
   );
 }

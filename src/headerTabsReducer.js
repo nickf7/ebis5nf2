@@ -8,7 +8,7 @@ const initialStore = {
 
 export default function headerTabsReducer(state = initialStore, action){
   switch(action.type){
-    case consts.OPEN_NEW_TAB:
+    case 'OPEN_NEW_TAB':
       return Object.assign({}, state,{
         ...state,
         openTabs: [...state.openTabs, action.newTab] // add new tab to end of array
