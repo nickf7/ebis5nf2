@@ -6,3 +6,4 @@ export function openNewTab(newTab){
     newTab
   };
 }
+

@@ -9,27 +9,23 @@ import './App.css';
 class HeaderTab extends Component {
   constructor(props){
     super(props);
-    // No need for local state?
-    // this.state ={
-    //   openTabs:[{WOID:"wo1", title:"WO #1", details:"Work Order #1 Content"}, 
-    //             {WOID:"wo2", title:"WO #2", details:"Work Order #2 Content"}, 
-    //             {WOID:"wo3", title:"WO #3", details:"Work Order #3 content"}]
-    // }
   }
 
-  onNavWOClick(){
-    this.props.actions.openNewTab({WOID:"woTA1", title:"WO TA #1", details:"Test Added Content"})
+  onNavClick(name){
+    alert(name+" was clicked");
   }
 
   onTabChange(event){
     this.props.actions.changeSelectedTab(event);
   }
-  //linkObjs = {[name="Open Work Order", action="function(){alert('OpenWorkOrder Clicked'}"]
+  linkObjs = [{name:"Open Work Order", action:"OpenWorkOrder Clicked"},
+              {name:"Open Eq Browse Order", action:"return function(){alert('OpenEQBrowse Clicked'}"},
+              {name:"Open Somethin Else", action:"return function(){alert('OpenSuminElse Clicked'}"}];
 //debugger;
   render(){
     return(
       <div className="header">
-        <NavBar/>
+        <NavBar links={this.linkObjs} onClick={this.onNavClick}/>
         <HeaderTabCmp handleSelect={this.changeSelectedTab} {...this.props} />
       </div>
     )
