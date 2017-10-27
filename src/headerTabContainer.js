@@ -7,20 +7,21 @@ import NavBar from './navBarComponent';
 import './App.css';
 
 class HeaderTab extends Component {
-  constructor(props){
-    super(props);
-  }
+  // constructor(props){
+  //   super(props);
+  // }
 
   onNavClick(name){
+    tabActions.openNewTab({WOID:"wo"+name, title:"WO "+name, details:"Work Order:" +name +"Content"});
     alert(name+" was clicked");
   }
 
   onTabChange(event){
     this.props.actions.changeSelectedTab(event);
   }
-  linkObjs = [{name:"Open Work Order", action:"OpenWorkOrder Clicked"},
-              {name:"Open Eq Browse Order", action:"return function(){alert('OpenEQBrowse Clicked'}"},
-              {name:"Open Somethin Else", action:"return function(){alert('OpenSuminElse Clicked'}"}];
+  linkObjs = [{name:"Open Work Order"},
+              {name:"Open Eq Browse Order"},
+              {name:"Open Somethin Else"}];
 //debugger;
   render(){
     return(
